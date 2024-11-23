@@ -1,0 +1,506 @@
+# Episode-5
+
+## NLP TASKS:-->
+  ----------
+  ----------
+
+1. Text Classification:->
+   --------------------
+real use case1 of text classification is Camtasia software(windows) Q&A
+-- in support form we can post the errors and bugs they have to priorities these issues in high, low or medium severity.
+
+--> Customer complain Severity Classification
+ example :-> 
+a. camtasia 10.0 won't import mp4 file through import media section  --> it's pretty bad thing --> High Severity complaint
+ so , like handling these one or 2 complaint is easy for humans but if it is alot then we need NLP and 
+a.1 Here, we convert this text first in some kind of vector for this we use the method called "TF-IDF Vectorizer".
+TF-IDF is a way to convert a text into vector/ or in set of number.
+
+a.2 Once we have these numbers repersenting this text, we can also call these features. we can then use a classifer such as Naive Bayes Classifier
+to classify the complaints as high, medium or low.
+
+
+Use Case2:-> In health care domain we have all these health care documents like report, record, medicine prescribed
+----------
+They scan it upload to cloud and now one of use case of health care to classify these documents. like whether it is report or prescription
+So, here we use the google OCR that convert image data to text data & after that we use approach like DOC2VEC which is document to vector, then logistic regression classifier which can tell you which document they are..
+
+
+Use Case3:-> Hate speech detection by facebook
+---------
+we know facebook has lots of group like rasist, terrorist, anti social they put lot of hate speech on facebook they built the algorithm where algo read the text and it can tell us whether it is hate speech or not.
+
+Linkdien have the same issue where people make fake profiles and here they do this thing with help of some keywords and past knowledge, they build an algo using NLP which classify a profile as fake or not.
+
+=====================================================================================================================================================
+
+
+2. Text Similarity:->
+   ---------------
+
+Use case of matching resume according to job skills (hugging face sentence transformer)
+it's work like this we have job description and resume we use "Sentence encoder" --> to convert text into vector --> and then we use "Cosine Similarity" and then it will tell how much match it is.
+
+=====================================================================================================================================================
+
+3. Information Extraction:->
+   ----------------------
+use case is email for flight it will extract meaningful information like flight arrival, departure, seat number and all...
+
+Information flow of feature extraction:
+
+Raw text --> sentence segmentation --> word Tokenization --> part of speech Tagging-->Named entity Recoginisation.
+
+in word tokenization step and part speech tagging there is one more step called --> key phase extraction.
+
+part of speech Tagging --> syntatic parsing --> conference Resolution --> Relatin Extraction Event Extraction.
+
+from syntatic parsing & conference Resolution we get one more step/ thing --> Entity Disambiguation.
+
+=====================================================================================================================================================
+
+4. Information Retrieval:->
+   ---------------------
+Best example for information retrival is google search.
+we have lots of documents means lots of website return the relevant website in sorted order like first is more relevant second is less relevant and so on...
+
+we use things like "TFIDF SCORE" and "BERT"
+
+====================================================================================================================================================
+
+5. Chat Bots:->
+   ---------
+3 type of chat bot
+1. FAQ BOT -> that gives us hard coded answer
+2. FLOW-BASED BOT -> Connection between your messages
+3. OPEN-ENDED BOT -> like we are chit chatting with friend or someone
+
+=====================================================================================================================================================
+
+6. Machine Translation:->
+   -------------------
+di dove sei --> where are you from
+They use RNN Encoder Decoder (recurrent Neural Network)
+====================================================================================================================================================
+
+7. Language Modelling:->
+   ------------------
+
+In gmail it's auto complete sentence is part of language modelling
+
+
+these language models are 2 types
+1. "Statistical Model",   2. "Neural Model"
+
+===================================================================================================================================================
+
+8. TEXT SUMMARIZATION:->
+   ------------------
+
+to summarize all article in single line
+
+===================================================================================================================================================
+
+9. TOPIC MODELLING:->
+   ---------------
+
+here, we have bunch of documents  & huge volume of documents and we don't have time to read all these documents so we can use the topic modelling techinque to retrive the abstract topics out of it.
+====================================================================================================================================================
+
+10. Voice Assistant:->
+
+===================================================================================================================================================
+
+Episode 6
+
+# NLP PIPELINE
+  ============
+
+Data Acquistion -> Text extraction & clean up -> Pre-processing [sentence tokenization -> word Tokenization -> Stemming, Lemmatization] -> Feature Engineering [TF-IDF Vectorizer, One Hot Encoding, Word Embedding] -> ML Model [Naive bayes Classifier, SVM, Random Forest] -> Evaluation[Predictions[Confusion Matrix, accuracy, f1score, precision, recall]] -> Deployment[upload file on cloud] -> Monitor & update
+
+video -> codebasics Hyper Parameter Tuning Using GridSearchCV
+
+===================================================================================================================================================
+
+Episode 7
+
+Spacy and NLTK are two most used libraries in NLP
+
+Q. Differenitate between Spacy and NLTK?
+-> Spacy is Object-Oriented, where as NLTK is string processing library.
+
+-> Spacy: provides most efficient NLP algorithm for a given task. Hence if you care about the end result, go with spacy.
+   NLTK: provides access to many algorithms. if you care about specific algo and customizations go with NLTK.
+
+-> Spacy is user Friendly
+   NLTK is also user friendly but propbably less user friendly compared to spacy.
+
+====================================================================================================================================================
+
+Episode 8
+
+Tokenization in Spacy
+======================
+
+1. Sentence Tokenization:-> We have paragraph of text, we first seperate out in sentences.
+2. Word Tokenization:-> Now, from each sentence we can split it out in the words
+3. Stemming, Lemmatization:-> 
+
+
+--> Tokenization is a process of splitting text into meaningful segments.
+
+--> sentence = "Let's go to N.Y!" 
+    a. split the words by spaces. i.e. text.spli('') -> o/p we get is not my true tokens.
+    b. Spacy Tokenizor(come in place)[do some additional processing]
+       what kind of processing --> first split by "Prefix" like quote here and it have different prefixes.
+                                   Then look at "Exceptions" such as let's apostrophe s that is also a separate token.
+                                   Then you do "Suffix" the way u did prefix we same have suffix.
+                                   Then for one more "suffix" and another "Exception"
+                                    "Done".
+====================================================================================================================================================
+
+Episode 9
+
+Spacy: Language Processing Pipeline:-->
+===================================
+
+====================================================================================================================================================
+
+Episode 10
+
+# Stemming and Lemmatization:-->
+  ===========================
+like reducing the essential word to its base word (talking -> talk)
+
+-> use fixed rules such as remove able, ing etc. to derive a base word called stemming.
+-> Here, you need knoledge of a language(a.k.a. linguistic knowledge) to derive a base word. that "base_word" is called "lemma".
+-> base_word = lemma and this process is called lemmatization.
+
+====================================================================================================================================================
+
+Episode 11
+
+ex:-> 
+1. Dhaval ate fruite --> This sentence is made up of different parts, those parts are called part of speech
+
+Dhaval [The person who is doing an act/the work of eating fruit] k/a "NOUN"
+The "Action" which is eating is k/a Verb.
+and the thing been eating fruits, is noun.
+
+2. Elon flew to Mars yesterday. He carried biryani masala with him.
+Noun - Elon, Mars
+verb - Flew
+
+Pronoun:-> Substitute of a noun [Like we subtitute Noun Elon as Pronounu He] -- He, she, our, you, they, I....
+Noun:-> Person, place, thing, idea
+Verb:-> Action or experience
+
+3.  I ate many[adjectives] fruits
+
+Adjectives:-> Describes the noun. Adds meaning to it. [many, sweet, citirus]
+
+4. I slowly[Adverb] ate many fruits
+
+Adverb:-> Describes verb, adjective or adverb [slowly, quickly]
+
+5. wow! Dr. Strange made 265 million on first day
+Hey! Give me back my Lamborgini
+Alas! He got a NO from google Interview
+
+Interjection -> represent the strong emotion[wow, hey....]
+
+6. I want to eat pizza, but I want to be healthy
+Hulk took a pen and started writing the story
+
+Conjuction[connection]:-> conect words or group of words[but,and,or]
+
+7. I parked my car in the garage.
+Thor is on the bus.
+
+Preposition:-> Links a noun to another word
+[after, against, along, among, around, because of, before, behind, below, beneath, besides, between, in, on, at]
+====================================================================================================================================================
+
+Episode 12
+
+## Named Entity Recognition(NER):-->
+   =============================
+
+1. Use Case: Search
+   - search some person name, company name.....
+
+2. Use Case: Recommendations
+   - recommend according to our prefence [like we read some article accoding to entity recognistaion it recommend article according to prefernce]
+====================================================================================================================================================
+
+## Season 2 Episode 1
+
+## TEXT REPRESENTATION:->
+   -------------------
+
+Feature Engineering:
+-------------------
+
+Q. what are the features for word?
+
+ex:-> Dhoni Cummins Australia
+
+common techique: I can represent word as a set of vectors/ set of numbers
+
+-> having similar representation for similar words is very useful
+
+-> machine learning models do not understand words so we convert them in number, ml model understand numbers.
+
+-> Feature Engineering is a process of extracting features from raw data.
+
+-> Representing text as a vector is also k/a Vector Space Model.
+
+-> There are various approaches of converting text into vector.
+   1. one Hot Encoding, 2. Bag of words, 3.TF-IDF, 4. word Embeddings, 5. Label Encoding
+
+====================================================================================================================================================
+
+Episode 2
+
+# Text Representation: Label and one Hot Encoding
+  ===============================================
+
+convert text into number if u have text and feed it to naive bayes classifier[ML Model] and identify it's spam or not.
+
+Raw Text -> Number Vector -> Machine Learning
+
+approach1
+--> create manual vocab and then try to convert text into a simple vector or list and this vector is nothing just list of numbers.
+--> we can create a simple vector for a text and it is very primitive way of representing text. and as a vector it is called label encoding.
+
+approach2
+
+-> we have our vocab...
+
+we put our original text that we want to convert. while converting we put '1'[one] to the place where that word occur and remaining word as zero[0] and this is called one-Hot Encoding.
+
+--> It is not used much in ML and NLP becoz of some disadvantages we use TF-IDF, word embeddings, bag of words
+
+--> Disadvantages of label encoding and one hot encoding
+1. if i have similar word repersentation of two words it will help me.but one hot encoding is kind of stupid becoz it just look at the position of a word and puts 1 there. like i have 2 vector 'i need help', 'i need assistance' accoding to one hot encoding it's very different looking at vector we can't able to say anything and one hot encoding does not capture the meaning of word in an accurate way.
+[similar words do not have similar representation in sense of vector]
+
+2. consumes too much memory and compute resources
+
+3. out of vocabulary (OOV) problem
+
+4. No fixed Length Representation.
+
+====================================================================================================================================================
+
+Episode 3
+
+## TEXT REPRESENTATION USING BAG OF WORDS(BOW):->
+
+- When we read some article we notice some keyword to find out about company
+- one way we can auto extract the company name is by building a vocabulary.
+- and then for each of these articles we can have a word count.
+- ex:-> how many times a word come tesla : 14, ipad:3....
+- for bag of words, this is bag of words numeric representation. all we have to do it, we have vocabulary, we get the word count for each of the words which are present in the document and we create a vector and that vector is also called count vectorizer.
+
+ex:-> i have a email[suppose] -> Then create a vector/ or convert into number[using bag of words model] -> then use ml model [naive bayes classifier] -> output - yes, No...
+
+Approach:-> Raw Text --> Number Vector --> Machine Learning.
+
+- first we will build a vocabulary for these emails
+- vocabulary is a unique count of words in all our emails
+
+# Limitations of Bag of words
+  ===========================
+
+1. It may consume too much memory & compute resources [Sparse Representation]
+Sparse Representation:- like we have a big vector and most of values are 0. this called sparse representation & this consumes a lot of memory and compute resources.
+
+2. Doesn't capture meaning of words properly.
+like it just count of occurence in text, not match same words just count them.
+
+====================================================================================================================================================
+
+Episode 4
+
+## Stop Words:->
+   ==========
+
+Stop words are a set of commonly used words in a language. Examples of stop words in English are “a,” “the,” “is,” “are,” etc. Stop words are commonly used in Text Mining and Natural Language Processing (NLP) to eliminate words that are so widely used that they carry very little useful information.
+
+Q. When Should I not remove Stop Words?
+- This is a good movie ---> remove stop words ---> good movie
+- This is a not good movie ---> remove stop words ---> good movie
+
+- When we are doing language translation,  here if i remove stop words in pre-processing stage, all i get some sentence w/o stop words that make may be non sense.
+
+# be careful while removing stop words
+- Chat bot, Q&A System
+- Language Translation
+- Any case where valuable information is lost
+
+====================================================================================================================================================
+
+Episode 5 
+
+## TEXT REPRESENtation Using Bag of n-grams:->
+   ========================================
+
+The bag of n-grams is similar to the bag of words, where we have a vector of numbers. And the only thing is, instead of just single words, we can also have a collection of words which are occurring in sequence.
+
+Meaning of a sentence is determined by order of words.
+
+# limitations of bag of n-grams model
+- As n increased, dimensionality, sparsity increases
+
+
+====================================================================================================================================================
+
+Episode 6
+
+## TEXT REPRESENTATION USING TF-IDF:-->
+   ================================
+
+Document Frequency(DF) = Number of times term t is present in all docs
+
+What is TF-IDF?
+
+    TF stands for Term Frequency and denotes the ratio of number of times a particular word appeared in a Document to total number of words in the document.
+
+       Term Frequency(TF) = [number of times word appeared / total no of words in a document]
+
+    Term Frequency values ranges between 0 and 1. If a word occurs more number of times, then it's value will be close to 1.
+
+    IDF stands for Inverse Document Frequency and denotes the log of ratio of total number of documents/datapoints in the whole dataset to the number of documents that contains the particular word.
+
+       Inverse Document Frequency(IDF) = [log(Total number of documents / number of documents that contains the word)]
+
+    In IDF, if a word occured in more number of documents and is common across all documents, then it's value will be less and ratio will approaches to 0.
+
+    Finally:
+
+       TF-IDF = Term Frequency(TF) * Inverse Document Frequency(IDF)
+
+Document Frequency(DF) = Number of times term t is present in all docs
+
+- If this document frequency is higher, if some term is appearing in majority of documents, we should lower its influence, becoz it's like a generic term.
+
+- But if some word only appear in only few documents such as Gigafactory, see only 1 doc, iphone in only 2 doc then that term is important.
+so, we need to give it a high score.
+
+- come up with some scoring mechanism here, higher the terms appears in all the documents, the influence should be lower. and we do that using "inverse document frequency".
+
+that -> 3 if you invert it number goes down
+
+IDF(t) = (Total Documents / Number of documents term t is present in)
+
+- If word/term is appear in less documents then score would be higher and this is called IDF Inverse document frequency.
+- If term appear in more document then score would be less, becoz you want to reduce the influence.
+
+IDF(t) = log(Total Documents / Number of documents term t is present in)
+
+- we also have to keep take into account the word frequency, what we do total number of time term t is present in document which is just simple word count that we took in bag of words model, divided by total number of tokens in that document and we call it term frequerncy.
+
+TF(t,d) = (Total Number of time term t is present in doc A / Total number of tokens in doc A)
+Here, t-term, d-document, in which we are counting the term frequency.
+
+TF-IDF = TF(t,d) * IDF(t)
+
+TF - IDF Representation (or vectorizer)
+
+
+### Sklearn
+-> If smooth_idf=True (the default), the constant "1" is added to the numerator and denominator of the idf as if an extra document was seen containing every term in the collection exactly once, which prevents zero divisons: idf(t) = log[(1+n) / (1+df(t)] + 1].
+
+
+--> IDF(t) = log(Total Documents / Number of documents term t is present in)
+Q. Why do we use log in IDF
+--> Here is the intuition: If term frequency of the word 'computer' in doc1 is 10 and in doc2 it's 20, we can say that doc2 is more relevant than doc1 for the word 'computer'.
+
+However, if the term frequency of the same word, 'computer', for doc1 is 1 million and doc2 is 2 millions, at this point, there is no much difference in terms of relevancy anymore becoz they both contain a very high count for term 'computer'.
+
+Just like Debasis's answer, adding log is to dampen the importance of term that has a high frequency, e.g. Using log base 2, the count of 1 million will be reduced to 19.9!
+
+# Limitations of tf-idf model:->
+- As n increased, dimensionality, sparsity increases.
+- Doesn't capture relationship between words.
+- Doesn't address out of vocabulary (OOV) problem.
+====================================================================================================================================================
+
+Episode 7
+
+## TEXT REPRESENTATION USING WORD EMBEDDINGS:->
+   =========================================
+
+bag of words
+- It may consume too much memory and compute resources.
+- presentation is sparse [most value is zero]
+- similar word have different vector representation.
+- doesn't capture meaning of words properly.
+
+** WORD EMBEDDINGS try to address these shortcoming
+- similar words have similar vectors
+- Dimensions are low [size is near 300]
+- Dense representation [most value are not zeros]
+
+*** Word Embedding Techniques
+
+CBOW, Skip gram
+
+1. Word2Vec
+2. GloVe
+3. fastText
+
+- These techniques built on different approaches and the common technique that we use to build these word embedding which is word2vec, glove, fastext is using continuous bag of words and skip gram.
+
+- Based on transformers architecture  --> BERT, GPT
+
+- Based on LSTM -> ELMo
+
+--> These techniques used like they convert a word or a sentence into a vector representation. so that it can capture the meaning of that word properly. we can also do arithmetic with the words.
+
+word2vec:-->  example:-> King - man + woman = ? we get 'Queen'
+
+** CBOW: Continuous Bag Of Words --> Given Context words predict target word
+ex:-> like we have context as [order, his] and we are predicting the target as[king]
+
+** Skip Gram:-->
+Given the target Predict context words
+ex:-> we do reverse of CBOW
+========================================================================================================================================================================================================================================================================================================
+
+Episode 12
+
+### FastText(Train Custom Word Vectors in FastText):-->
+    ===============================================
+
+- fastext is another word embedding twchnique
+
+
+
+
+word2vec:->
+========
+- unit on which neural network is trained is WORD.
+(capable)
+
+fasttext:->
+========
+- unit on which neural network is trained is CHARACTER n GRAM.
+capable n = 3(choose n=3) means cap,apa,apb....
+
+- In fastext the out of vocabulary problem is solved at major extent.
+
+
+## FastText Fun Facts:-->
+   ==================
+- fastext can handle oov better than word2vec.
+- fastext is often a first choice when you want to train custom word embeddings for your domain.
+- fasttext is a technique (similar to word2vec) as well as library.
+
+- https://fasttext.cc/
+
+
+
+
+
